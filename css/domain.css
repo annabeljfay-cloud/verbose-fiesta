@@ -1,0 +1,53 @@
+/* =========================================================================
+   Domain stylesheet
+   -------------------------------------------------------------------------
+   Attach this file to your content domain in HubSpot:
+     Settings -> Website -> Pages -> (select your content domain)
+     -> "Attached stylesheets" -> Add stylesheet -> select this file.
+
+   Once attached it loads on every page served from that domain, so these
+   rules apply regardless of which template or includes a page uses.
+
+   Goal: make the logos and the overall text smaller.
+   Tweak the values marked "ADJUST" to taste.
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   1. Smaller overall text
+   -------------------------------------------------------------------------
+   Setting the root font-size scales every element that uses rem/em units
+   (which the HubSpot theme does). 100% is the browser default (~16px);
+   lower it to shrink everything proportionally.
+   ------------------------------------------------------------------------- */
+html {
+  font-size: 93.75%; /* ADJUST: ~15px base. Use 87.5% for ~14px, 100% to reset. */
+}
+
+/* Belt-and-suspenders: if the theme sets a fixed font-size on the body
+   wrapper, nudge body copy down relative to its inherited size. */
+.body-container-wrapper,
+.hs-content-wrapper,
+body {
+  font-size: 0.95em; /* ADJUST */
+}
+
+
+/* -------------------------------------------------------------------------
+   2. Smaller logos (logo gallery section)
+   -------------------------------------------------------------------------
+   HubSpot logo galleries render each logo as an <img>. The selectors below
+   cover the common class names used by logo-gallery modules/sections.
+   Capping the height keeps each logo proportional.
+   ------------------------------------------------------------------------- */
+.logo-gallery img,
+.logo-gallery__logo img,
+.hs-logo-gallery img,
+.logo-slider img,
+[class*="logo-gallery"] img,
+[class*="logo-grid"] img,
+[class*="logos"] img {
+  max-height: 40px !important; /* ADJUST: lower for smaller logos */
+  width: auto !important;
+  height: auto;
+}
