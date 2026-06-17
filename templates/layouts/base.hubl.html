@@ -1,0 +1,30 @@
+<!--
+  templateType: none
+  label: Base layout
+-->
+<!doctype html>
+<html lang="{{ locale_name() }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page_meta.html_title }}</title>
+    <meta name="description" content="{{ page_meta.meta_description }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {# Required by HubSpot: injects CSS, meta, and analytics into the head #}
+    {{ standard_header_includes }}
+  </head>
+
+  <body>
+    {% block header %}{% endblock header %}
+
+    <div class="body-container-wrapper">
+      {% block body %}{% endblock body %}
+    </div>
+
+    {% block footer %}{% endblock footer %}
+
+    {# Required by HubSpot: injects analytics/tracking before the closing body tag #}
+    {{ standard_footer_includes }}
+  </body>
+</html>
